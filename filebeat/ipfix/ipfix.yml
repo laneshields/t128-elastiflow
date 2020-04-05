@@ -1,0 +1,40 @@
+45956:
+  1:
+  - :uint16
+  - :t128RecordType
+  6:
+  - :string
+  - :t128SessionType
+  7:
+  - :uint32
+  - :t128StartTime
+  8:
+  - :uint32
+  - :t128EndTime
+  9:
+  - :uint64
+  - :t128ForwardByteCount
+  10:
+  - :uint64
+  - :t128ForwardPacketCount
+  11:
+  - :uint64
+  - :t128ForwardTcpRetransmissions
+  12:
+  - :string
+  - :t128ServiceName
+  13:
+  - :string
+  - :t128ServiceClass
+  14:
+  - :string
+  - :t128SessionId
+  15:
+  - :string
+  - :t128ServiceGroup
+  16:
+  - :string
+  - :t128TenantName
+  17:
+  - :string
+  - :t128RouterName

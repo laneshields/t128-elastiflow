@@ -1,0 +1,29 @@
+filebeat.config:
+  logging:
+    level: debug
+
+filebeat.inputs:
+- type: netflow
+  host: "0.0.0.0:4739"
+  protocols: [ipfix]
+  custom_definitions:
+  - /usr/share/filebeat/ipfix/ipfix.yml
+
+filebeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+
+processors:
+- add_cloud_metadata: ~
+
+#output.elasticsearch:
+#  hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+#  username: '${ELASTICSEARCH_USERNAME:}'
+#  password: '${ELASTICSEARCH_PASSWORD:}'
+
+output.elasticsearch:
+  enabled: false
+
+output.logstash:
+  hosts: [logstash-ipfix:5044]
