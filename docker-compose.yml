@@ -98,22 +98,18 @@ services:
     image: spotify/kafka
     container_name: kafka
     restart: 'always'
-    ports:
-    - "2181:2181"
-    - "9092:9092"
+    network_mode: host
     environment:
-      ADVERTISED_HOST: "10.130.199.11"
+      ADVERTISED_HOST: "172.31.11.106"
       ADVERTISED_PORT: "9092"
 
   kafka-logstash:
     image: docker.elastic.co/logstash/logstash:7.5.1
     container_name: kafka-logstash
+    network_mode: host
     depends_on:
       - elastiflow-elasticsearch-oss
       - kafka
-    links:
-      - kafka:kafka1
-      - elastiflow-elasticsearch-oss:elasticsearch1
     volumes:
-      - "kafka-logstash-pipeline/:/usr/share/logstash/pipeline/"
+      - "./kafka-logstash-pipeline:/usr/share/logstash/pipeline"
 
