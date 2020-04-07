@@ -8448,6 +8448,7 @@
   - :uint64
   - :pluribus_latency_usec
 
+# 128 Technology
 45956:
   1:
   - :uint16
